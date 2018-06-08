@@ -56,5 +56,4 @@ docker exec -u user $project_name-app sh -c 'php bin/magento setup:upgrade'
 docker exec -u user $project_name-app sh -c 'php bin/magento deploy:mode:set developer'
 docker exec -u user $project_name-app sh -c 'php bin/magento cache:disable'
 docker exec -u user $project_name-app sh -c 'php bin/magento indexer:reindex'
-docker exec -u user $project_name-app sh -c 'sh shell.sh'
 curl http://${YOUR_PROJECT_NAME}-local.com > /dev/null;

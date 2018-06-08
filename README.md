@@ -1,5 +1,16 @@
 # Magento 2 And Docker
 
+## Images
+
+| Components  | 2.2-dev | 2.2 |
+|:------------|-------------|---|
+| **PHP Version** | `7.1` | `7.1` |
+| **PHP Modules** | `bcmath`, `Core`, `ctype`, `curl`, `date`, `dom`,<br>`fileinfo`, `filter`, `ftp`, `gd`, `hash`, `iconv`,<br>`intl`, `json`, `libxml`, `mbstring`, `mcrypt`,<br>`mysqli`, `mysqlnd`, `openssl`, `pcre`, `PDO`,<br> `pdo_mysql`, `pdo_sqlite`, `Phar`, `posix`,<br>`readline`, `Reflection`, `session`, `SimpleXML`,<br>`soap`, `SPL`, `sqlite3`, `standard`, `tokenizer`,<br>`xdebug`, `xml`, `xmlreader`, `xmlwriter`, `xsl`,<br>`zip`, `zlib` | `The Same` |
+| **Zend Modules** | **XDebug:**<br>**idekey:** `xdebug-atom`<br>**remote_port:** `9000`<br>_See the file_ `docker/containers/app/php-conf.d/xdebug.ini` | `-` |
+| **Composer** | `1.6+` | `1.6+` |
+| **Fish** | `+` | `-` |
+| **User** | `user` | `user` |
+
 ## How to use
 - Replace the string `${YOUR_PROJECT_NAME}` throught the project with the required name.
 
