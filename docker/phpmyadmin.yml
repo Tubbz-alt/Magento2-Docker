@@ -1,0 +1,14 @@
+version: '3'
+services:
+    phpmyadmin:
+        container_name: ${YOUR_PROJECT_NAME}-phpmyadmin
+        image: phpmyadmin/phpmyadmin:latest
+        ports:
+            - 8000:80
+        external_links:
+            - db
+        networks:
+            - ${YOUR_PROJECT_NAME}-dbnet
+networks:
+    ${YOUR_PROJECT_NAME}-dbnet:
+        external: true

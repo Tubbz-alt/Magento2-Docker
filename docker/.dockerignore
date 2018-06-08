@@ -1,0 +1,5 @@
+*
+!containers/app/.bash_history
+!containers/app/php-conf.d/xdebug.ini
+!containers/app/php-fpm.d/www.conf
+!containers/app/scripts/app-install.sh

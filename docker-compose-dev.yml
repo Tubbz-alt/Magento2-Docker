@@ -1,0 +1,50 @@
+version: '3'
+services:
+    app:
+        container_name: ${YOUR_PROJECT_NAME}-app
+        image: vaddemgen/magento2-docker:latest-dev
+        volumes:
+            - ./:/var/www
+            - ./pub/.user.ini:/usr/local/etc/php/conf.d/project.ini
+            - ./docker/containers/app/composer/auth.json:/home/user/.composer/auth.json
+            - ./docker/containers/app/scripts:/home/user/scripts
+        links:
+            - db
+        env_file: docker/containers/app/.env
+        networks:
+            ${YOUR_PROJECT_NAME}-net:
+                ipv4_address: 175.0.0.2
+    db:
+        container_name: ${YOUR_PROJECT_NAME}-mysql
+        image: mariadb:latest
+        volumes:
+            - ./docker/containers/db/dump.sql:/root/dumps/db-dump.sql
+        env_file: docker/containers/db/.env
+        networks:
+            dbnet:
+            ${YOUR_PROJECT_NAME}-net:
+                ipv4_address: 175.0.0.3
+    nginx:
+        container_name: ${YOUR_PROJECT_NAME}-nginx
+        image: nginx:latest
+        ports:
+            - 7000:80
+        volumes:
+            - ./:/var/www
+            - ./docker/containers/nginx/vhost.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/containers/nginx/gzip.conf:/etc/nginx/conf.d/gzip.conf
+            - ./docker/containers/nginx/project-nginx.conf:/var/www/nginx.conf
+        links:
+            - app
+        networks:
+            ${YOUR_PROJECT_NAME}-net:
+                ipv4_address: 175.0.0.4
+networks:
+    dbnet:
+        external:
+            name: ${YOUR_PROJECT_NAME}-dbnet
+    ${YOUR_PROJECT_NAME}-net:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 175.0.0.0/24
