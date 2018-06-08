@@ -20,9 +20,9 @@
         - _"Find in project"_ `->` `${YOUR_PROJECT_NAME}`
         - _"Replace in project"_ `->` `test`
     - Bash
-    ```shell
-    find . -type f -exec sed -i "s/${YOUR_PROJECT_NAME}/test/g" {} \;
-    ```
+      ```shell
+      find . -type f -exec sed -i "s/${YOUR_PROJECT_NAME}/test/g" {} \;
+      ```
 - Add the content of this project to your project.
 
 ### 0. The first initialization of the project
