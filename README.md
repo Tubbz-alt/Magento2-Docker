@@ -114,16 +114,10 @@ MySQL access provided in the file **docker/containers/db/.env**;
   ```
 ### MySQL CLI
 
-- Connect to docker container:
+- Connect to MySQL through the docker container:
 
   ```shell
-  docker exec -u root -it ${YOUR_PROJECT_NAME}-mysql bash
-  ```
-
-- Connect to MySQL:
-
-  ```shell
-  mysql -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE
+  docker exec -u root -it quiqup-mysql sh -c 'mysql -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE'
   ```
 
 - To import DB dump, execute the following:
