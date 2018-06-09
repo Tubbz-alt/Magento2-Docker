@@ -1,5 +1,11 @@
 # Magento 2 And Docker
 
+## License
+
+**Magento 2 And Docker integration** is licensed under the **Apache License, Version 2.0**.
+
+See **LICENSE** for the full license text
+
 ## Images
 
 | Components  | 2.2-dev | 2.2 |
